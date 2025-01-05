@@ -1,210 +1,202 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Schedule</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f9;
-            color: #333;
-        }
-        header {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px 0;
-            text-align: center;
-        }
-        .container {
-            width: 80%;
-            margin: auto;
-            padding: 20px;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        h2 {
-            border-bottom: 2px solid #4CAF50;
-            padding-bottom: 5px;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 20px;
-        }
-        table th, table td {
-            border: 1px solid #ddd;
-            padding: 8px;
-            text-align: left;
-        }
-        table th {
-            background-color: #4CAF50;
-            color: white;
-        }
-        footer {
-            text-align: center;
-            padding: 10px 0;
-            background-color: #4CAF50;
-            color: white;
-            margin-top: 20px;
-        }
-    </style>
-</head>
-<body>
-    <header>
-        <h1>My Schedule</h1>
-    </header>
+import React, { useState } from 'react';
+import { ChevronDown, ChevronRight, Clock, MapPin } from 'lucide-react';
 
-    <div class="container">
-        <section>
-            <h2>My Classes</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Class Code</th>
-                        <th>Class Name</th>
-                        <th>Location</th>
-                        <th>Days</th>
-                        <th>Time</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>17 37</td>
-                        <td>CAP5619-01</td>
-                        <td>HCB</td>
-                        <td>MW</td>
-                        <td>4:50 PM - 6:05 PM</td>
-                    </tr>
-                    <tr>
-                        <td>13 33 53</td>
-                        <td>MAD5404-01</td>
-                        <td>LOV</td>
-                        <td>MWF</td>
-                        <td>10:40 AM - 11:30 AM</td>
-                    </tr>
-                    <tr>
-                        <td>12 32 52</td>
-                        <td>MAP6621-01</td>
-                        <td>LOV</td>
-                        <td>MWF</td>
-                        <td>9:20 AM - 10:10 AM</td>
-                    </tr>
-                    <tr>
-                        <td>55</td>
-                        <td>MAP6939-04</td>
-                        <td>LOV</td>
-                        <td>F</td>
-                        <td>1:20 PM - 2:10 PM</td>
-                    </tr>
-                    <tr>
-                        <td>36</td>
-                        <td>MAT5939-01</td>
-                        <td>LOV</td>
-                        <td>W</td>
-                        <td>3:05 PM - 4:20 PM</td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
+const Schedule = () => {
+  const [activeDay, setActiveDay] = useState(null);
 
-        <section>
-            <h2>TA Duties</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Task</th>
-                        <th>Course</th>
-                        <th>Day</th>
-                        <th>Time</th>
-                        <th>Location</th>
-                        <th>Proctor Role</th>
-                        <th>Teacher</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Office Hours</td>
-                        <td>N/A</td>
-                        <td>2</td>
-                        <td>N/A</td>
-                        <td>N/A</td>
-                        <td>N/A</td>
-                        <td>N/A</td>
-                    </tr>
-                    <tr>
-                        <td>Lab 17</td>
-                        <td>MAC1140</td>
-                        <td>W</td>
-                        <td>12:00 PM - 12:50 PM</td>
-                        <td>113HTL</td>
-                        <td>Proctor 1</td>
-                        <td>Wilk</td>
-                    </tr>
-                    <tr>
-                        <td>Lect 19</td>
-                        <td>MAC1140</td>
-                        <td>W</td>
-                        <td>1:20 PM - 2:35 PM</td>
-                        <td>BEL102</td>
-                        <td>Proctor 1</td>
-                        <td>Wilk</td>
-                    </tr>
-                    <tr>
-                        <td>Lect 1</td>
-                        <td>MAC1140</td>
-                        <td>R</td>
-                        <td>1:20 PM - 2:35 PM</td>
-                        <td>FLH275</td>
-                        <td>Proctor 2</td>
-                        <td>Wilk</td>
-                    </tr>
-                    <tr>
-                        <td>Lect 1</td>
-                        <td>MGF1130</td>
-                        <td>T</td>
-                        <td>9:45 AM - 11:00 AM</td>
-                        <td>HWC2100</td>
-                        <td>Proctor 3</td>
-                        <td>Harris</td>
-                    </tr>
-                    <tr>
-                        <td>Lect 1</td>
-                        <td>MGF1130</td>
-                        <td>R</td>
-                        <td>9:45 AM - 11:00 AM</td>
-                        <td>HWC2100</td>
-                        <td>Proctor 2</td>
-                        <td>Harris</td>
-                    </tr>
-                    <tr>
-                        <td>Lab 6</td>
-                        <td>MGF1130</td>
-                        <td>M</td>
-                        <td>1:20 PM - 2:10 PM</td>
-                        <td>107MCH</td>
-                        <td>Proctor 1</td>
-                        <td>Harris</td>
-                    </tr>
-                    <tr>
-                        <td>Lab 7</td>
-                        <td>MGF1130</td>
-                        <td>M</td>
-                        <td>3:05 PM - 3:55 PM</td>
-                        <td>107MCH HB</td>
-                        <td>Proctor 1</td>
-                        <td>Harris</td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
+  const scheduleData = {
+    Monday: [
+      {
+        time: '9:20 AM - 10:10 AM',
+        type: 'class',
+        title: 'MAP6621-01',
+        location: 'LOV'
+      },
+      {
+        time: '10:40 AM - 11:30 AM',
+        type: 'class',
+        title: 'MAD5404-01',
+        location: 'LOV'
+      },
+      {
+        time: '1:20 PM - 2:10 PM',
+        type: 'duty',
+        title: 'Lab 6 - MGF1130',
+        location: '107MCH',
+        role: 'Proctor 1',
+        teacher: 'Harris'
+      },
+      {
+        time: '3:05 PM - 3:55 PM',
+        type: 'duty',
+        title: 'Lab 7 - MGF1130',
+        location: '107MCH HB',
+        role: 'Proctor 1',
+        teacher: 'Harris'
+      },
+      {
+        time: '4:50 PM - 6:05 PM',
+        type: 'class',
+        title: 'CAP5619-01',
+        location: 'HCB'
+      }
+    ],
+    Tuesday: [
+      {
+        time: '9:45 AM - 11:00 AM',
+        type: 'duty',
+        title: 'Lect 1 - MGF1130',
+        location: 'HWC2100',
+        role: 'Proctor 3',
+        teacher: 'Harris'
+      }
+    ],
+    Wednesday: [
+      {
+        time: '9:20 AM - 10:10 AM',
+        type: 'class',
+        title: 'MAP6621-01',
+        location: 'LOV'
+      },
+      {
+        time: '10:40 AM - 11:30 AM',
+        type: 'class',
+        title: 'MAD5404-01',
+        location: 'LOV'
+      },
+      {
+        time: '12:00 PM - 12:50 PM',
+        type: 'duty',
+        title: 'Lab 17 - MAC1140',
+        location: '113HTL',
+        role: 'Proctor 1',
+        teacher: 'Wilk'
+      },
+      {
+        time: '1:20 PM - 2:35 PM',
+        type: 'duty',
+        title: 'Lect 19 - MAC1140',
+        location: 'BEL102',
+        role: 'Proctor 1',
+        teacher: 'Wilk'
+      },
+      {
+        time: '3:05 PM - 4:20 PM',
+        type: 'class',
+        title: 'MAT5939-01',
+        location: 'LOV'
+      },
+      {
+        time: '4:50 PM - 6:05 PM',
+        type: 'class',
+        title: 'CAP5619-01',
+        location: 'HCB'
+      }
+    ],
+    Thursday: [
+      {
+        time: '9:45 AM - 11:00 AM',
+        type: 'duty',
+        title: 'Lect 1 - MGF1130',
+        location: 'HWC2100',
+        role: 'Proctor 2',
+        teacher: 'Harris'
+      },
+      {
+        time: '1:20 PM - 2:35 PM',
+        type: 'duty',
+        title: 'Lect 1 - MAC1140',
+        location: 'FLH275',
+        role: 'Proctor 2',
+        teacher: 'Wilk'
+      }
+    ],
+    Friday: [
+      {
+        time: '9:20 AM - 10:10 AM',
+        type: 'class',
+        title: 'MAP6621-01',
+        location: 'LOV'
+      },
+      {
+        time: '10:40 AM - 11:30 AM',
+        type: 'class',
+        title: 'MAD5404-01',
+        location: 'LOV'
+      },
+      {
+        time: '1:20 PM - 2:10 PM',
+        type: 'class',
+        title: 'MAP6939-04',
+        location: 'LOV'
+      }
+    ]
+  };
+
+  return (
+    <div className="min-h-screen bg-gray-100 py-8">
+      <div className="max-w-4xl mx-auto px-4">
+        <h1 className="text-3xl font-bold text-center mb-8 text-gray-800">Weekly Schedule</h1>
+        
+        <div className="space-y-4">
+          {Object.entries(scheduleData).map(([day, activities]) => (
+            <div 
+              key={day}
+              className="bg-white rounded-lg shadow-md overflow-hidden"
+            >
+              <button
+                onClick={() => setActiveDay(activeDay === day ? null : day)}
+                className="w-full px-6 py-4 flex items-center justify-between bg-gradient-to-r from-blue-500 to-purple-500 text-white hover:from-blue-600 hover:to-purple-600 transition-all"
+              >
+                <span className="text-xl font-semibold">{day}</span>
+                {activeDay === day ? (
+                  <ChevronDown className="w-6 h-6" />
+                ) : (
+                  <ChevronRight className="w-6 h-6" />
+                )}
+              </button>
+              
+              {activeDay === day && (
+                <div className="p-4 space-y-4">
+                  {activities.map((activity, index) => (
+                    <div 
+                      key={index}
+                      className={`p-4 rounded-lg ${
+                        activity.type === 'class' 
+                          ? 'bg-blue-50 border-l-4 border-blue-500'
+                          : 'bg-pink-50 border-l-4 border-pink-500'
+                      }`}
+                    >
+                      <div className="flex items-center text-gray-600 mb-2">
+                        <Clock className="w-4 h-4 mr-2" />
+                        <span>{activity.time}</span>
+                      </div>
+                      
+                      <h3 className="text-lg font-semibold text-gray-800 mb-2">
+                        {activity.title}
+                      </h3>
+                      
+                      <div className="flex items-center text-gray-600">
+                        <MapPin className="w-4 h-4 mr-2" />
+                        <span>{activity.location}</span>
+                      </div>
+                      
+                      {activity.type === 'duty' && (
+                        <div className="mt-2 text-gray-600">
+                          <p>Role: {activity.role}</p>
+                          <p>Teacher: {activity.teacher}</p>
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
+  );
+};
 
-    <footer>
-        <p>&copy; 2025 My Schedule</p>
-    </footer>
-</body>
-</html>
+export default Schedule;
